@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="de">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idevento" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="deResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="deResult" type="tns:ArrayOfDatosEvento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosEvento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosEvento" nillable="true" type="tns:DatosEvento" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosEvento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idevento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idpuerta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="capacidad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="costo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="disponibilidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Disponibilidad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idevento" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idpuerta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisponibilidadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DisponibilidadResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="deSoapIn">
+    <wsdl:part name="parameters" element="tns:de" />
+  </wsdl:message>
+  <wsdl:message name="deSoapOut">
+    <wsdl:part name="parameters" element="tns:deResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisponibilidadSoapIn">
+    <wsdl:part name="parameters" element="tns:Disponibilidad" />
+  </wsdl:message>
+  <wsdl:message name="DisponibilidadSoapOut">
+    <wsdl:part name="parameters" element="tns:DisponibilidadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConsultaEstadioWebServiceSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="de">
+      <wsdl:input message="tns:deSoapIn" />
+      <wsdl:output message="tns:deSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Disponibilidad">
+      <wsdl:input message="tns:DisponibilidadSoapIn" />
+      <wsdl:output message="tns:DisponibilidadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaEstadioWebServiceSoap" type="tns:ConsultaEstadioWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="de">
+      <soap:operation soapAction="http://tempuri.org/de" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disponibilidad">
+      <soap:operation soapAction="http://tempuri.org/Disponibilidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultaEstadioWebServiceSoap12" type="tns:ConsultaEstadioWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="de">
+      <soap12:operation soapAction="http://tempuri.org/de" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disponibilidad">
+      <soap12:operation soapAction="http://tempuri.org/Disponibilidad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaEstadioWebService">
+    <wsdl:port name="ConsultaEstadioWebServiceSoap" binding="tns:ConsultaEstadioWebServiceSoap">
+      <soap:address location="https://fefabees.bsite.net/ConsultaEstadioWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultaEstadioWebServiceSoap12" binding="tns:ConsultaEstadioWebServiceSoap12">
+      <soap12:address location="https://fefabees.bsite.net/ConsultaEstadioWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

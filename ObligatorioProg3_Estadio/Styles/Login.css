@@ -1,0 +1,58 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    background: #E4DADA;
+    background: -moz-linear-gradient(-45deg, #E4DADA 0%, #5A7CA4 51%, #0E0086 100%);
+    background: -webkit-linear-gradient(-45deg, #E4DADA 0%, #5A7CA4 51%, #0E0086 100%);
+    background: linear-gradient(135deg, #E4DADA 0%, #5A7CA4 51%, #0E0086 100%);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.Panel-Login {
+    margin-top: 9%;
+    margin-bottom: 5%;
+    padding-bottom: 1%;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 1px 0px 4px 3px rgba(0,0,0,0.38);
+    box-shadow: 0px 10px 13px -7px #000000, 1px 0px 4px 3px rgba(0,0,0,0.38);
+}
+
+.button-7 {
+    color: white;
+    box-shadow: 1px 1px 1px #BEE2F9;
+    padding: 10px 25px;
+    background: #09349b;
+    border:hidden;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .button-7:hover {
+        color: black;
+        background: linear-gradient(top, #468CCF, #63B8EE);
+        background: -webkit-gradient(linear, left top, left bottom, from(#468CCF), to(#63B8EE));
+        background: -moz-linear-gradient(top, #468CCF, #63B8EE);
+        cursor: pointer;
+    }
+
+.textBox {
+    padding: 6px;
+    font-size: 18px;
+    border-width: 2px;
+    border-color: #383abe;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 3px 4px 1px rgba(1,1,1,.7);
+    text-shadow: -50px 0px 0px rgba(66,66,66,.0);
+}
+.textBox:focus {
+    outline:solid;
+    outline-color: #468CCF;
+    border-color: black;
+}
+
+#mensaje{
+    font-size: 14px;
+}
